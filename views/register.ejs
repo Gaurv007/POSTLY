@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #43cea2;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #43cea2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #2bbd8e;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .link a {
+            text-decoration: none;
+            color: #43cea2;
+            font-weight: bold;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-box">
+        <h2>Create Account</h2>
+
+          <!-- Flash Messages -->
+    <% if (error && error.length > 0) { %>
+        <div style="color:red; border:1px solid red; padding:10px; margin-bottom:15px; border-radius:5px;">
+            <%= error[0] %>
+        </div>
+    <% } %>
+
+    <% if (success && success.length > 0) { %>
+        <div style="color:green; border:1px solid green; padding:10px; margin-bottom:15px; border-radius:5px;">
+            <%= success[0] %>
+        </div>
+    <% } %>
+
+        <form action="/register" method="POST">
+
+            <label>Full Name</label>
+            <input type="text" name="fullname" placeholder="Enter full name" required>
+
+            <label>Username</label>
+            <input type="text" name="name" placeholder="Enter username" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+
+            <label>Phone Number</label>
+            <input type="tel" name="number" placeholder="Enter phone number" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="link">
+            Already have an account? <a href="/login">Login</a>
+        </div>
+    </div>
+
+</body>
+</html>
